@@ -4,6 +4,7 @@ using Trains;
 using Trains.GraphObjects;
 using Trains.FileReader;
 using Trains.Util;
+using System.Collections.Generic;
 
 namespace TrainsTest
 {
@@ -11,29 +12,43 @@ namespace TrainsTest
     public class RegexPatternsTest
     {
         
-        private void assertPatternSuccess(string line, params string[] values)
+        private void assertPattern(string line,  TokenizedLine tokens)
         {
             RegexEngine engine = new RegexEngine();
-            var tokenizedLine = engine.ExtractTokens("The distance of the route A-B- C.");
-            Assert.AreEqual(tokenizedLine.Count, values.Length);
-            for(int i = 0; i < tokenizedLine.Count; i++)
+            var tokenizedLine = engine.ExtractTokens(line);
+            Assert.AreEqual(tokenizedLine.Type, tokens.Type);
+            Assert.AreEqual(tokenizedLine.Tokens.Count, tokens.Tokens.Count);
+            for(int i = 0; i < tokenizedLine.Tokens.Count; i++)
             {
-                Assert.AreEqual(values[i], tokenizedLine[i]);
+                Assert.AreEqual(tokens.Tokens[i], tokenizedLine.Tokens[i]);
             }
         }
 
         [TestMethod]
-        public void DistanceOfRoutePatternTest()
+        public void DistanceOfRoutePatternTestSuccess()
         {
-            (new Tuple<string, string[]>[] {
-            Tuple.Create("The distance of the route A-B- C.", new string [] { "A","B","C" }),
-            Tuple.Create("The distance of the route A - D - C.", new string [] { "A", "D", "C"}),
-            Tuple.Create("The distance of the route A - D.", new string [] { "A","D"}),
-            Tuple.Create("The distance of the route A - E - B - C - D.", new string [] { "A","E","B", "C", "D" }),
-            Tuple.Create("The distance of the route A - E - D.", new string [] { "A","E","D" }) })
-            .ForEach(l => assertPatternSuccess(l.Item1, l.Item2));
+            Func<List<string>,TokenizedLine> expectedResult = a => new TokenizedLine(a, LineType.DistanceOfRoutePattern);
+            (new Tuple<string, TokenizedLine>[] {
+            Tuple.Create("The distance of the route A-B- C.", expectedResult(new List<string>() { "A","B","C" })),
+            Tuple.Create("The distance of the route A - D - C.", expectedResult(new List<string>() { "A","D","C" })),
+            Tuple.Create("The distance of the route A - D.", expectedResult(new List<string>() { "A","D" })),
+            Tuple.Create("The distance of the route A - E - B - C - D.", expectedResult(new List<string>() { "A","E","B","C","D" })),
+            Tuple.Create("The distance of the route A - E - D.", expectedResult(new List<string>() { "A","E","D" }))})
+            .ForEach(l => assertPattern(l.Item1, l.Item2));
         }
-        
+
+        [TestMethod]
+        public void DistanceOfRoutePatternTestFailure()
+        {
+            var expectedResult = new TokenizedLine(new List<string>(), LineType.InvalidLine);
+            (new Tuple<string, TokenizedLine>[] {
+            Tuple.Create("The distance of the route A-B- C", expectedResult),
+            Tuple.Create("The distance of the route ADFDFD - D - C.", expectedResult),
+            Tuple.Create("The distance of the sdfa route A - D.", expectedResult),
+            Tuple.Create("The distance of the route A - 3 - 8 - C - D.", expectedResult) })
+            .ForEach(l => assertPattern(l.Item1, l.Item2));
+        }
+
 
         /*[TestMethod]
         public void EqualityTestSuccess()
@@ -48,6 +63,6 @@ namespace TrainsTest
             Assert.IsTrue(nodecmp.Equals(node2, node3));
         }*/
 
-       
+
     }
 }

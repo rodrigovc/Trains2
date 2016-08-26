@@ -11,7 +11,7 @@ namespace Trains.Graph.Interfaces
         where TNode : INode<TNode, TEdge>
         where TEdge : IEdge<TNode, TEdge>
     {
-        TNode INode { get; }
+        TNode Node { get; }
 
         IDictionary<TNode, TEdge> Neighbours { get; }
     }

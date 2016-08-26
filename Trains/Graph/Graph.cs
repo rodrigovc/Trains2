@@ -13,25 +13,18 @@ namespace Trains.Graph
         where TNode : INode<TNode, TEdge>
         where TEdge : IEdge<TNode, TEdge>
     {
-        IList<TNode> nodes;
         public Graph() : this (new List<TNode>()) { }
 
         public Graph(IList<TNode> nodes)
         {
-            this.nodes = nodes;
+           Nodes = nodes;
         }
 
-        public IList<TNode> Nodes
-        {
-            get
-            {
-                return nodes;
-            }
-        }
+        public IList<TNode> Nodes { get; private set; }
 
         public Graph<TNode,TEdge> Add(TNode node)
         {
-            nodes.Add(node);
+            Nodes.Add(node);
             return this;
         }
     }

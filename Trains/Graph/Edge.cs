@@ -12,28 +12,14 @@ namespace Trains.GraphObjects
         where TNode : INode<TNode, TEdge>
         where TEdge : IEdge<TNode, TEdge>
     {
-        TNode destination;
-        TEdge distance;
         public Edge(TNode destination, TEdge distance)
         {
-            this.destination = destination;
-            this.distance = distance;
+            Destination = destination;
+            Distance = distance;
         }
 
+        public TNode Destination { get; private set; }
+        public TEdge Distance { get; private set; }
 
-        public TNode Destination {
-            get
-            {
-                return destination;
-            }
-        }
-
-        public TEdge Distance
-        {
-            get
-            {
-                return distance;
-            }
-        }
     }
 }

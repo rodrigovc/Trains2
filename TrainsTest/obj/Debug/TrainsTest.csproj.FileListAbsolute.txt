@@ -9,3 +9,5 @@ C:\Users\rodrigovc\documents\visual studio 2015\Projects\Trains\TrainsTest\obj\D
 C:\Users\rodrigovc\documents\visual studio 2015\Projects\Trains\TrainsTest\bin\Debug\Collections.dll
 C:\Users\rodrigovc\documents\visual studio 2015\Projects\Trains\TrainsTest\bin\Debug\Collections.xml
 C:\Users\rodrigovc\documents\visual studio 2015\Projects\Trains\TrainsTest\bin\Debug\de\Collections.resources.dll
+C:\Users\rodrigovc\documents\visual studio 2015\Projects\Trains\TrainsTest\bin\Debug\System.Collections.Immutable.dll
+C:\Users\rodrigovc\documents\visual studio 2015\Projects\Trains\TrainsTest\bin\Debug\System.Collections.Immutable.xml

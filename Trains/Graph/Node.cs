@@ -9,40 +9,26 @@ using Trains.Graph.Interfaces;
 
 namespace Trains.GraphObjects
 {
-    public class Node<TNode, TEdge> : INode<TNode, TEdge>
+    public class GraphNode<TNode, TEdge> : INode<TNode, TEdge>
         where TNode : INode<TNode, TEdge>
         where TEdge : IEdge<TNode, TEdge>
     {
-        TNode node;
-        IDictionary<TNode, TEdge> neighbours;
 
-        public Node (TNode node) : this (node, new Dictionary<TNode, TEdge>()) { }
+        public GraphNode(TNode node) : this (node, new Dictionary<TNode, TEdge>()) { }
 
-        public Node(TNode node, IDictionary<TNode, TEdge> neighbours)
+        public GraphNode(TNode node, IDictionary<TNode, TEdge> neighbours)
         {
-            this.node = node;
-            this.neighbours = neighbours;
+            Node = node;
+            Neighbours = neighbours;
         }
 
-        public TNode INode
-        {
-            get
-            {
-                return node;
-            }
-        }
+        public TNode Node { get; private set; }
 
-        public IDictionary<TNode, TEdge> Neighbours
-        {
-            get
-            {
-                return neighbours;
-            }
-        }
+        public IDictionary<TNode, TEdge> Neighbours { get; private set; }
 
-        public Node<TNode, TEdge> AddNeighbour(TNode destination, TEdge distance)
+        public GraphNode<TNode, TEdge> AddNeighbour(TNode destination, TEdge distance)
         {
-            neighbours.Add(destination, distance);
+            Neighbours.Add(destination, distance);
             return this;
         }
     }
