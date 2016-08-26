@@ -25,7 +25,7 @@ namespace TrainsTest
         }
 
         [TestMethod]
-        public void DistanceOfRoutePatternTestSuccess()
+        public void DistanceOfRoutePatternTest()
         {
             Func<List<string>,TokenizedLine> expectedResult = a => new TokenizedLine(a, LineType.DistanceOfRoutePattern);
             (new Tuple<string, TokenizedLine>[] {
@@ -47,6 +47,32 @@ namespace TrainsTest
             Tuple.Create("The distance of the sdfa route A - D.", expectedResult),
             Tuple.Create("The distance of the route A - 3 - 8 - C - D.", expectedResult) })
             .ForEach(l => assertPattern(l.Item1, l.Item2));
+        }
+
+        [TestMethod]
+        public void MaxNumberOfStopsTest()
+        {
+            Func<List<string>, TokenizedLine> expectedResult = a => new TokenizedLine(a, LineType.MaxNumberOfStops);
+            (new Tuple<string, TokenizedLine>[] {
+            Tuple.Create("The number of trips starting at C and ending at C with a maximum of 3 stops.", 
+            expectedResult(new List<string>() { "C","C","3" })),
+            Tuple.Create("The number of trips starting at C and ending at B with a maximum of 55 stops.", 
+            expectedResult(new List<string>() { "C","B","55" })),
+            Tuple.Create("The number of trips starting at A and ending at B with a maximum of 150 stops.", 
+            expectedResult(new List<string>() { "A","B","150" }))}).ForEach(l => assertPattern(l.Item1, l.Item2));
+        }
+
+        [TestMethod]
+        public void ExactNumberOfStopsTest()
+        {
+            Func<List<string>, TokenizedLine> expectedResult = a => new TokenizedLine(a, LineType.ExactNumberOfStops);
+            (new Tuple<string, TokenizedLine>[] {
+            Tuple.Create("The number of trips starting at A and ending at C with exactly 7 stops.",
+            expectedResult(new List<string>() { "A","C","7" })),
+            Tuple.Create("The number of trips starting at D and ending at E with exactly 45 stops.",
+            expectedResult(new List<string>() { "D","E","45" })),
+            Tuple.Create("The number of trips starting at B and ending at B with exactly 88 stops.",
+            expectedResult(new List<string>() { "B","B","88" }))}).ForEach(l => assertPattern(l.Item1, l.Item2));
         }
 
 

@@ -2,6 +2,5 @@ C:\Users\rodrigovc\documents\visual studio 2015\Projects\Trains\Trains\bin\Debug
 C:\Users\rodrigovc\documents\visual studio 2015\Projects\Trains\Trains\bin\Debug\Trains.pdb
 C:\Users\rodrigovc\documents\visual studio 2015\Projects\Trains\Trains\obj\Debug\Trains.dll
 C:\Users\rodrigovc\documents\visual studio 2015\Projects\Trains\Trains\obj\Debug\Trains.pdb
-C:\Users\rodrigovc\documents\visual studio 2015\Projects\Trains\Trains\obj\Debug\Trains.csprojResolveAssemblyReference.cache
 C:\Users\rodrigovc\documents\visual studio 2015\Projects\Trains\Trains\bin\Debug\System.Collections.Immutable.dll
 C:\Users\rodrigovc\documents\visual studio 2015\Projects\Trains\Trains\bin\Debug\System.Collections.Immutable.xml
