@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Trains.GraphObjects;
 
-namespace Trains.Graph
+namespace Trains.FileReader
 {
-    public class Graph
+    public class RegexPatterns
     {
-        HashSet<Node> nodes = new HashSet<Node>();
+        const string distanceOfRoutePattern = "";
+
     }
 }

@@ -6,3 +6,6 @@ C:\Users\rodrigovc\documents\visual studio 2015\Projects\Trains\TrainsTest\bin\D
 C:\Users\rodrigovc\documents\visual studio 2015\Projects\Trains\TrainsTest\obj\Debug\TrainsTest.csprojResolveAssemblyReference.cache
 C:\Users\rodrigovc\documents\visual studio 2015\Projects\Trains\TrainsTest\obj\Debug\TrainsTest.dll
 C:\Users\rodrigovc\documents\visual studio 2015\Projects\Trains\TrainsTest\obj\Debug\TrainsTest.pdb
+C:\Users\rodrigovc\documents\visual studio 2015\Projects\Trains\TrainsTest\bin\Debug\Collections.dll
+C:\Users\rodrigovc\documents\visual studio 2015\Projects\Trains\TrainsTest\bin\Debug\Collections.xml
+C:\Users\rodrigovc\documents\visual studio 2015\Projects\Trains\TrainsTest\bin\Debug\de\Collections.resources.dll
