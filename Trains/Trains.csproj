@@ -47,6 +47,7 @@
     <Compile Include="FileReader\RegexEngine.cs" />
     <Compile Include="FileReader\RegexPatterns.cs" />
     <Compile Include="FileReader\TokenizedLine.cs" />
+    <Compile Include="Folder\IOperationcs.cs" />
     <Compile Include="Graph\Edge.cs" />
     <Compile Include="Graph\Graph.cs" />
     <Compile Include="Graph\Interfaces\IEdge.cs" />
